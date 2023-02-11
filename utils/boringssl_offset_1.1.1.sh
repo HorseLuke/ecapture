@@ -27,12 +27,12 @@ if [[ ! -d "${BORINGSSL_DIR}/.git" ]]; then
   # skip cloning if the openssl directory already exists
   if [[ ! -d "${BORINGSSL_DIR}" ]]; then
 #    git clone https://github.com/google/boringssl.git ${BORINGSSL_DIR}
-    git clone ${BORINGSSL_REPO} ${BORINGSSL_DIR}
+    git clone -b android12-release ${BORINGSSL_REPO} ${BORINGSSL_DIR}
   fi
 fi
 
 function run() {
-  git fetch --tags
+  #git fetch --tags
   cp -f ${PROJECT_ROOT_DIR}/utils/boringssl-offset.c ${BORINGSSL_DIR}/offset.c
   declare -A sslVerMap=()
   # get all commit about ssl/internel.h  who commit date > Apr 25 23:00:0 2021  (android 12 release)

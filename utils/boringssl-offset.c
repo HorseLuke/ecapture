@@ -18,6 +18,9 @@
 #include <ssl/internal.h>
 #include <stddef.h>
 #include <stdio.h>
+#include <ctype.h>
+
+
 
 #define SSL_STRUCT_OFFSETS                   \
     X(ssl_st, version)                       \
@@ -33,7 +36,6 @@
     X(bssl::SSL3_STATE, established_session) \
     X(bssl::SSL_HANDSHAKE, new_session)      \
     X(bssl::SSL_HANDSHAKE, early_session)    \
-    X(bssl::SSL_HANDSHAKE, hints)            \
     X(bssl::SSL_HANDSHAKE, client_version)   \
     X(bssl::SSL_HANDSHAKE, state)            \
     X(bssl::SSL_HANDSHAKE, tls13_state)      \
@@ -63,6 +65,9 @@ void format(char *struct_name, char *field_name, size_t offset) {
 int main() {
     printf("/* OPENSSL_VERSION_TEXT: %s */\n", OPENSSL_VERSION_TEXT);
     printf("/* OPENSSL_VERSION_NUMBER: %d */\n\n", OPENSSL_VERSION_NUMBER);
+
+    printf("/* Note: bssl::SSL_HANDSHAKE hints NOT EXISTS IN Branch %s */\n", "android12-release");
+    printf("#define BSSL__SSL_HANDSHAKE_HINTS 0x%lx\n\n", 0L);
 
 #define X(struct_name, field_name) \
     format(#struct_name, #field_name, offsetof(struct struct_name, field_name));
