@@ -4,6 +4,9 @@
 /* OPENSSL_VERSION_TEXT: OpenSSL 1.1.1 (compatible; BoringSSL) */
 /* OPENSSL_VERSION_NUMBER: 269488255 */
 
+/* Note: bssl::SSL_HANDSHAKE hints NOT EXISTS IN Branch android12-release */
+#define BSSL__SSL_HANDSHAKE_HINTS 0x0
+
 // ssl_st->version
 #define SSL_ST_VERSION 0x10
 
@@ -38,16 +41,13 @@
 #define BSSL__SSL3_STATE_ESTABLISHED_SESSION 0x1c8
 
 // bssl::SSL_HANDSHAKE->new_session
-#define BSSL__SSL_HANDSHAKE_NEW_SESSION 0x5d8
+#define BSSL__SSL_HANDSHAKE_NEW_SESSION 0x290
 
 // bssl::SSL_HANDSHAKE->early_session
-#define BSSL__SSL_HANDSHAKE_EARLY_SESSION 0x5e0
-
-// bssl::SSL_HANDSHAKE->hints
-#define BSSL__SSL_HANDSHAKE_HINTS 0x610
+#define BSSL__SSL_HANDSHAKE_EARLY_SESSION 0x298
 
 // bssl::SSL_HANDSHAKE->client_version
-#define BSSL__SSL_HANDSHAKE_CLIENT_VERSION 0x61c
+#define BSSL__SSL_HANDSHAKE_CLIENT_VERSION 0x2bc
 
 // bssl::SSL_HANDSHAKE->state
 #define BSSL__SSL_HANDSHAKE_STATE 0x14
