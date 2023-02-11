@@ -8,6 +8,31 @@
 [![Github Version](https://img.shields.io/github/v/release/gojue/ecapture?display_name=tag&include_prereleases&sort=semver)](https://github.com/gojue/ecapture/releases)
 
 ### eCapture(旁观者): 基于eBPF技术实现TLS加密的明文捕获，无需CA证书。
+----
+
+# 分支（和不合并到上游的原因）说明
+
+这是一个特殊的分支，为了能在GKI 1.0阶段（基于内核版本5.4的启动内核android-11-5.4和android-12-5.4）正常运行ecapture。
+
+在启动内核android-11-5.4（boot.img，kernel 5.4）上测试通过，用户空间为Android 12（就是指用户看到的android启动版本）。
+
+你需要对kernel 5.4修改大量的内核代码，否则ecapture不能正常运行。
+
+这也是为什么这个分支为什么不能合并回上游。
+
+该分支仅供有经验人士使用，如果缺乏足够时间，千万别搞。有这时间还不如V我......啊不是V自己50吃顿好的23333333。
+
+关于GKI 1.0 (Kernel 5.4):
+
+https://source.android.com/docs/core/architecture/kernel/gki1-overview
+
+https://source.android.com/docs/core/architecture/kernel/generic-kernel-image
+
+讨论:
+
+https://github.com/gojue/ecapture/discussions/308
+
+----
 
 > **Note:**
 >

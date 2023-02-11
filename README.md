@@ -12,6 +12,31 @@
 
 ### eCapture(旁观者):  capture SSL/TLS text content without CA cert Using eBPF.
 
+----
+
+# Fork Note (And why it did not merge into upstream)
+
+This is a special fork for running ecapture on GKI 1.0 stages (Launch kernel android-11-5.4 and android-12-5.4, which baseed on kernel 5.4).
+
+Tested on launch kernel android11-5.4 (boot.img) with Android 12 userspace (about page that user can see). 
+
+You have to modify lots of code in kernel 5.4, otherwise ecapture will run failed. 
+
+That's why it can't merge into upstream.
+
+This fork is for advanced user only, do not use it if you lacks time.
+
+About GKI 1.0 (Kernel 5.4):
+
+https://source.android.com/docs/core/architecture/kernel/gki1-overview
+
+https://source.android.com/docs/core/architecture/kernel/generic-kernel-image
+
+Discussion:
+
+https://github.com/gojue/ecapture/discussions/308
+----
+
 > **Note**
 >
 > Supports Linux/Android kernel versions x86_64 4.18 and above, **aarch64 5.5** and above.
